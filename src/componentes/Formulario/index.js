@@ -14,7 +14,7 @@ const equipes = [
   "Inovação e Gestão",
 ];
 
-const Formulario = () => {
+const Formulario = (props) => {
   const [nome, setNome] = useState("");
   const [cargo, setCargo] = useState("");
   const [imagem, setImagem] = useState("");
@@ -22,9 +22,12 @@ const Formulario = () => {
 
   const aoSalvar = (event) => {
     event.preventDefault();
-    console.log(
-      `Form foi submetido =>, ${nome}, ${cargo}, ${imagem} e ${equipe}`
-    );
+    props.aoColaboradorCadastrado({
+      nome,
+      cargo,
+      imagem,
+      equipe,
+    });
   };
   return (
     <section className="formulario">
