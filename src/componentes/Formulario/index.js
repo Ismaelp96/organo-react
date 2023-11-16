@@ -18,10 +18,13 @@ const Formulario = () => {
   const [nome, setNome] = useState("");
   const [cargo, setCargo] = useState("");
   const [imagem, setImagem] = useState("");
+  const [equipe, setEquipe] = useState("");
 
   const aoSalvar = (event) => {
     event.preventDefault();
-    console.log(`Form foi submetido =>, ${nome}, ${cargo}, ${imagem}`);
+    console.log(
+      `Form foi submetido =>, ${nome}, ${cargo}, ${imagem} e ${equipe}`
+    );
   };
   return (
     <section className="formulario">
@@ -47,7 +50,13 @@ const Formulario = () => {
           valor={imagem}
           aoAlterado={(imagem) => setImagem(imagem)}
         />
-        <ListaSuspensa obrigatorio={true} itens={equipes} label="Equipes" />
+        <ListaSuspensa
+          obrigatorio={true}
+          valor={equipe}
+          aoAlterado={(equipe) => setEquipe(equipe)}
+          itens={equipes}
+          label="Equipes"
+        />
         <Botao texto="Criar card" />
       </form>
     </section>
